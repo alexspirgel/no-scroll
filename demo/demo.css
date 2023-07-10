@@ -1,0 +1,73 @@
+/**********************/
+/* Demo Custom Styles */
+/**********************/
+
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	color: #dddddd;
+	background-color: #333333;
+	overflow: auto;
+}
+.body-inner {
+	width: 100%;
+	max-width: 1200px;
+	margin: auto;
+	padding: 16px;
+}
+.toggle-button {
+	border: 1px solid #dddddd;
+	border-radius: 4px;
+	margin-bottom: 8px;
+	padding: 4px 8px;
+	font-weight: 700;
+	color: #000000;
+	background-color: #dddddd;
+	transition-property: color, background-color;
+	transition-duration: 0.25s;
+	cursor: pointer;
+}
+.toggle-button:hover {
+	color: #ffffff;
+	background-color: #000000;
+}
+.body-toggle {
+	position: fixed;
+	top: 5px;
+	left: calc((100% - var(--no-scroll--document-width-offset, 0px)) / 2);
+	transform: translateX(-50%);
+	z-index: 100;
+}
+.vertical-wrapper-outer {
+	height: 300px;
+	border: 1px solid #dddddd;
+	overflow: auto;
+}
+.vertical-wrapper-inner {
+	overflow: auto;
+}
+.horizontal-wrapper-outer {
+	width: 100%;
+	border: 1px solid #dddddd;
+	overflow: auto;
+}
+.horizontal-wrapper-inner {
+	width: 400%;
+	overflow: auto;
+}
+.both-wrapper-outer {
+	height: 500px;
+	border: 1px solid #dddddd;
+	overflow: auto;
+}
+.both-wrapper-inner {
+	width: fit-content;
+	overflow: auto;
+}
+pre {
+	tab-size: 4;
+}

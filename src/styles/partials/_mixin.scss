@@ -1,0 +1,87 @@
+@use "sass:map";
+
+@mixin no-scroll($options: ()) {
+
+	$default-options: (
+		data-attribute-name: (
+			element: 'data-no-scroll-element',
+			x-state: 'data-no-scroll-x-state',
+			y-state: 'data-no-scroll-y-state',
+		),
+		css-variable-name: (
+			horizontal-scrollbar-height: '--no-scroll--horizontal-scrollbar-height',
+			vertical-scrollbar-width: '--no-scroll--vertical-scrollbar-width',
+			document-width-offset: '--no-scroll--document-width-offset',
+		)
+	);
+
+	$merged-options: map-merge($default-options, $options);
+
+	$attr-element: map.get(map.get($merged-options, 'data-attribute-name'), 'element');
+	$attr-x-state: map.get(map.get($merged-options, 'data-attribute-name'), 'x-state');
+	$attr-y-state: map.get(map.get($merged-options, 'data-attribute-name'), 'y-state');
+	$var-hs-height: map.get(map.get($merged-options, 'css-variable-name'), 'horizontal-scrollbar-height');
+	$var-vs-width: map.get(map.get($merged-options, 'css-variable-name'), 'vertical-scrollbar-width');
+	$var-doc-width-offset: map.get(map.get($merged-options, 'css-variable-name'), 'document-width-offset');
+
+	[#{$attr-element}="outer"] {
+		#{$var-hs-height}: 0px;
+		#{$var-vs-width}: 0px;
+		box-sizing: border-box;
+		position: relative;
+		padding: 0; /* Padding on outer elements breaks disabled scrollbar placeholder spacing. */
+		overflow: auto; /* Accounts for space of internal margins. */
+		&[#{$attr-x-state}="no-scroll"] {
+			overflow-x: hidden;
+		}
+		&[#{$attr-y-state}="no-scroll"] {
+			overflow-y: hidden;
+		}
+		&::after {
+			content: "";
+			box-sizing: border-box;
+			display: none;
+			position: sticky;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			overflow-x: hidden;
+			overflow-y: hidden;
+			pointer-events: none;
+		}
+		&[#{$attr-x-state}="no-scroll"]::after,
+		&[#{$attr-y-state}="no-scroll"]::after {
+			display: block;
+		}
+		&[#{$attr-x-state}="no-scroll"]::after {
+			overflow-x: scroll;
+		}
+		&[#{$attr-y-state}="no-scroll"]::after {
+			overflow-y: scroll;
+		}
+	}
+	html[#{$attr-element}="outer"]::after {
+		height: 100vh;
+	}
+	[#{$attr-element}="inner"] {
+		box-sizing: border-box;
+		display: block;
+		width: auto;
+		height: auto;
+		max-width: none;
+		max-height: none;
+		border: 0; /* Border on inner elements breaks scrollbar size calculations. */
+		margin: 0; /* Margin on inner elements breaks scrollbar size calculations. */
+		padding: 0; /* Padding on inner elements breaks scrollbar size calculations. */
+		overflow: auto; /* Accounts for space of internal margins. */
+	}
+	[#{$attr-element}="outer"] {
+		&[#{$attr-y-state}="no-scroll"] > [#{$attr-element}="inner"] {
+			margin-right: var(#{$var-vs-width}, 0px);
+		}
+	}
+
+}

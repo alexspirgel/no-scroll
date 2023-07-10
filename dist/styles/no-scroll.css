@@ -1,0 +1,69 @@
+/*
+ * no-scroll v1.0.0
+ * https://github.com/alexspirgel/no-scroll
+ */
+[data-no-scroll-element=outer] {
+  --no-scroll--horizontal-scrollbar-height: 0px;
+  --no-scroll--vertical-scrollbar-width: 0px;
+  box-sizing: border-box;
+  position: relative;
+  padding: 0; /* Padding on outer elements breaks disabled scrollbar placeholder spacing. */
+  overflow: auto; /* Accounts for space of internal margins. */
+}
+
+[data-no-scroll-element=outer][data-no-scroll-x-state=no-scroll] {
+  overflow-x: hidden;
+}
+
+[data-no-scroll-element=outer][data-no-scroll-y-state=no-scroll] {
+  overflow-y: hidden;
+}
+
+[data-no-scroll-element=outer]::after {
+  content: "";
+  box-sizing: border-box;
+  display: none;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  pointer-events: none;
+}
+
+[data-no-scroll-element=outer][data-no-scroll-x-state=no-scroll]::after, [data-no-scroll-element=outer][data-no-scroll-y-state=no-scroll]::after {
+  display: block;
+}
+
+[data-no-scroll-element=outer][data-no-scroll-x-state=no-scroll]::after {
+  overflow-x: scroll;
+}
+
+[data-no-scroll-element=outer][data-no-scroll-y-state=no-scroll]::after {
+  overflow-y: scroll;
+}
+
+html[data-no-scroll-element=outer]::after {
+  height: 100vh;
+}
+
+[data-no-scroll-element=inner] {
+  box-sizing: border-box;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  border: 0; /* Border on inner elements breaks scrollbar size calculations. */
+  margin: 0; /* Margin on inner elements breaks scrollbar size calculations. */
+  padding: 0; /* Padding on inner elements breaks scrollbar size calculations. */
+  overflow: auto; /* Accounts for space of internal margins. */
+}
+
+[data-no-scroll-element=outer][data-no-scroll-y-state=no-scroll] > [data-no-scroll-element=inner] {
+  margin-right: var(--no-scroll--vertical-scrollbar-width, 0px);
+}

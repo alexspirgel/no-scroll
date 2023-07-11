@@ -8,9 +8,10 @@
     "scroll",
     "prevent"
   ],
-  "main": "src/index.js",
+  "main": "src/scripts/index.js",
   "files": [
-    "/src"
+    "/src",
+    "/dist"
   ],
   "license": "MIT",
   "repository": {

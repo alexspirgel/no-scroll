@@ -3,8 +3,8 @@
  * https://github.com/alexspirgel/no-scroll
  */
 [data-no-scroll-element=outer] {
-  --no-scroll--horizontal-scrollbar-height: 0px;
-  --no-scroll--vertical-scrollbar-width: 0px;
+  --no-scroll--x-scrollbar-height: 0px;
+  --no-scroll--y-scrollbar-width: 0px;
   box-sizing: border-box;
   position: relative;
   padding: 0; /* Padding on outer elements breaks disabled scrollbar placeholder spacing. */
@@ -65,5 +65,5 @@ html[data-no-scroll-element=outer]::after {
 }
 
 [data-no-scroll-element=outer][data-no-scroll-y-state=no-scroll] > [data-no-scroll-element=inner] {
-  margin-right: var(--no-scroll--vertical-scrollbar-width, 0px);
+  margin-right: var(--no-scroll--y-scrollbar-width, 0px);
 }

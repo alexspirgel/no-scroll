@@ -9,8 +9,8 @@
 			y-state: 'data-no-scroll-y-state',
 		),
 		css-variable-name: (
-			horizontal-scrollbar-height: '--no-scroll--horizontal-scrollbar-height',
-			vertical-scrollbar-width: '--no-scroll--vertical-scrollbar-width',
+			x-scrollbar-height: '--no-scroll--x-scrollbar-height',
+			y-scrollbar-width: '--no-scroll--y-scrollbar-width',
 			document-width-offset: '--no-scroll--document-width-offset',
 		)
 	);
@@ -20,8 +20,8 @@
 	$attr-element: map.get(map.get($merged-options, 'data-attribute-name'), 'element');
 	$attr-x-state: map.get(map.get($merged-options, 'data-attribute-name'), 'x-state');
 	$attr-y-state: map.get(map.get($merged-options, 'data-attribute-name'), 'y-state');
-	$var-hs-height: map.get(map.get($merged-options, 'css-variable-name'), 'horizontal-scrollbar-height');
-	$var-vs-width: map.get(map.get($merged-options, 'css-variable-name'), 'vertical-scrollbar-width');
+	$var-hs-height: map.get(map.get($merged-options, 'css-variable-name'), 'x-scrollbar-height');
+	$var-vs-width: map.get(map.get($merged-options, 'css-variable-name'), 'y-scrollbar-width');
 	$var-doc-width-offset: map.get(map.get($merged-options, 'css-variable-name'), 'document-width-offset');
 
 	[#{$attr-element}="outer"] {

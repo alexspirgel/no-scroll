@@ -19,8 +19,8 @@ module.exports = class NoScroll {
 				yState: 'data-no-scroll-y-state',
 			},
 			cssVariableName: {
-				horizontalScrollbarHeight: '--no-scroll--horizontal-scrollbar-height',
-				verticalScrollbarWidth: '--no-scroll--vertical-scrollbar-width',
+				xScrollbarHeight: '--no-scroll--x-scrollbar-height',
+				yScrollbarWidth: '--no-scroll--y-scrollbar-width',
 				documentWidthOffset: '--no-scroll--document-width-offset',
 			},
 		};
@@ -58,10 +58,10 @@ module.exports = class NoScroll {
 			throw new Error(`${errorPrefix} option.cssVariableName must be an object or undefined.`);
 		}
 		for (const property in options.cssVariableName) {
-			if (property !== 'horizontalScrollbarHeight'
-			&& property !== 'verticalScrollbarWidth'
+			if (property !== 'xScrollbarHeight'
+			&& property !== 'yScrollbarWidth'
 			&& property !== 'documentWidthOffset') {
-				throw new Error(`${errorPrefix} option.axis object must only contain one or more of these properties 'horizontalScrollbarHeight', 'verticalScrollbarWidth', and 'documentWidthOffset'.`);
+				throw new Error(`${errorPrefix} option.axis object must only contain one or more of these properties 'xScrollbarHeight', 'yScrollbarWidth', and 'documentWidthOffset'.`);
 			}
 			else {
 				if (typeof options.cssVariableName[property] !== 'string' && typeof options.cssVariableName[property] !== 'undefined') {
@@ -131,7 +131,7 @@ module.exports = class NoScroll {
 		}
 	}
 	
-	static getElementHorizontalScrollbarHeight(options) {
+	static getElementXScrollbarHeight(options) {
 		options = this.normalizeOptions(options);
 		let size = 0;
 		let outerSize = options.outerElement.offsetHeight;
@@ -149,7 +149,7 @@ module.exports = class NoScroll {
 		return size;
 	}
 
-	static getElementVerticalScrollbarWidth(options) {
+	static getElementYScrollbarWidth(options) {
 		options = this.normalizeOptions(options);
 		let size = 0;
 		let outerSize = options.outerElement.offsetWidth;
@@ -167,26 +167,26 @@ module.exports = class NoScroll {
 		return size;
 	}
 
-	static setHorizontalScrollbarHeightCSSVariable(options, value) {
+	static setXScrollbarHeightCSSVariable(options, value) {
 		options = this.normalizeOptions(options);
 		if (typeof value === 'undefined') {
-			value = this.getElementHorizontalScrollbarHeight(options);
+			value = this.getElementXScrollbarHeight(options);
 		}
 		if (typeof value === 'number') {
 			value = value.toString() + 'px';
 		}
-		options.outerElement.style.setProperty(options.cssVariableName.horizontalScrollbarHeight, value);
+		options.outerElement.style.setProperty(options.cssVariableName.xScrollbarHeight, value);
 	}
 
-	static setVerticalScrollbarWidthCSSVariable(options, value) {
+	static setYScrollbarWidthCSSVariable(options, value) {
 		options = this.normalizeOptions(options);
 		if (typeof value === 'undefined') {
-			value = this.getElementVerticalScrollbarWidth(options);
+			value = this.getElementYScrollbarWidth(options);
 		}
 		if (typeof value === 'number') {
 			value = value.toString() + 'px';
 		}
-		options.outerElement.style.setProperty(options.cssVariableName.verticalScrollbarWidth, value);
+		options.outerElement.style.setProperty(options.cssVariableName.yScrollbarWidth, value);
 		if (this.isOuterElementDocumentElement(options)) {
 			options.outerElement.style.setProperty(options.cssVariableName.documentWidthOffset, value);
 		}
@@ -212,11 +212,11 @@ module.exports = class NoScroll {
 		options.outerElement.setAttribute(options.dataAttributeName.element, 'outer');
 		options.innerElement.setAttribute(options.dataAttributeName.element, 'inner');
 		if (options.axis.x) {
-			this.setHorizontalScrollbarHeightCSSVariable(options);
+			this.setXScrollbarHeightCSSVariable(options);
 			options.outerElement.setAttribute(options.dataAttributeName.xState, this.stateValues.noScroll);
 		}
 		if (options.axis.y) {
-			this.setVerticalScrollbarWidthCSSVariable(options);
+			this.setYScrollbarWidthCSSVariable(options);
 			options.outerElement.setAttribute(options.dataAttributeName.yState, this.stateValues.noScroll);
 		}
 	}
@@ -224,11 +224,11 @@ module.exports = class NoScroll {
 	static enableScroll(options) {
 		options = this.normalizeOptions(options);
 		if (options.axis.x) {
-			this.setHorizontalScrollbarHeightCSSVariable(options, 0);
+			this.setXScrollbarHeightCSSVariable(options, 0);
 			options.outerElement.setAttribute(options.dataAttributeName.xState, this.stateValues.scroll);
 		}
 		if (options.axis.y) {
-			this.setVerticalScrollbarWidthCSSVariable(options, 0);
+			this.setYScrollbarWidthCSSVariable(options, 0);
 			options.outerElement.setAttribute(options.dataAttributeName.yState, this.stateValues.scroll);
 		}
 	}

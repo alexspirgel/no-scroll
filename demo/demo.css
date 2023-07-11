@@ -13,6 +13,10 @@ body {
 	background-color: #333333;
 	overflow: auto;
 }
+a, a:visited {
+	color: #dddddd;
+	text-decoration: underline;
+}
 .body-inner {
 	width: 100%;
 	max-width: 1200px;

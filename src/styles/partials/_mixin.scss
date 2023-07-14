@@ -64,7 +64,7 @@
 		}
 	}
 	html[#{$attr-element}="outer"]::after {
-		height: 100vh;
+		height: 100vh; /* If the outer element is <html> the after element must be set to the viewport height to work properly. */
 	}
 	[#{$attr-element}="inner"] {
 		box-sizing: border-box;

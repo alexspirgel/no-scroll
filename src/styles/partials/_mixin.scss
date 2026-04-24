@@ -47,7 +47,6 @@
 			left: 0;
 			right: 0;
 			width: 100%;
-			height: 100%;
 			overflow-x: hidden;
 			overflow-y: hidden;
 			pointer-events: none;
@@ -61,6 +60,7 @@
 		}
 		&[#{$attr-y-state}="no-scroll"]::after {
 			overflow-y: scroll;
+			height: 100%;
 		}
 	}
 	html[#{$attr-element}="outer"]::after {

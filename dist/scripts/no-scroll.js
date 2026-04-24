@@ -229,7 +229,7 @@ module.exports = class NoScroll {
 		if (this.isOuterElementDocumentElement(options)) {
 			outerSize = window.innerHeight;
 		}
-		const innerSize = options.innerElement.offsetHeight;
+		const innerSize = options.outerElement.clientHeight;
 		const outerElementComputedStyles = window.getComputedStyle(options.outerElement);
 		const borderTopWidth = parseInt(outerElementComputedStyles.borderTopWidth);
 		const borderBottomWidth = parseInt(outerElementComputedStyles.borderBottomWidth);
@@ -247,7 +247,7 @@ module.exports = class NoScroll {
 		if (this.isOuterElementDocumentElement(options)) {
 			outerSize = window.innerWidth;
 		}
-		const innerSize = options.innerElement.offsetWidth;
+		const innerSize = options.outerElement.clientWidth;
 		const outerElementComputedStyles = window.getComputedStyle(options.outerElement);
 		const borderLeftWidth = parseInt(outerElementComputedStyles.borderLeftWidth);
 		const borderRightWidth = parseInt(outerElementComputedStyles.borderRightWidth);

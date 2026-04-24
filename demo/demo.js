@@ -1,5 +1,10 @@
 // highlight.js - code block formatting
-hljs.highlightAll();
+try {
+	hljs.highlightAll();
+}
+catch {
+	// suppress error
+}
 
 // Scroll toggle buttons
 document.addEventListener("DOMContentLoaded", function() {

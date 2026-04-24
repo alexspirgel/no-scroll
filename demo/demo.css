@@ -72,6 +72,9 @@ a, a:visited {
 	width: fit-content;
 	overflow: auto;
 }
+.both-wrapper-inner img {
+	display: block;
+}
 pre {
 	tab-size: 4;
 }

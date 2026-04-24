@@ -29,7 +29,6 @@
   left: 0;
   right: 0;
   width: 100%;
-  height: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
   pointer-events: none;
@@ -45,10 +44,11 @@
 
 [data-no-scroll-element=outer][data-no-scroll-y-state=no-scroll]::after {
   overflow-y: scroll;
+  height: 100%;
 }
 
 html[data-no-scroll-element=outer]::after {
-  height: 100vh;
+  height: 100vh; /* If the outer element is <html> the after element must be set to the viewport height to work properly. */
 }
 
 [data-no-scroll-element=inner] {

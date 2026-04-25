@@ -10,7 +10,7 @@ catch {
 document.addEventListener("DOMContentLoaded", function() {
 
 	// body
-	document.querySelector('.body-toggle').addEventListener('click', () => {
+	document.querySelector('.body-toggle-vertical').addEventListener('click', () => {
 		noScroll.toggleScroll({
 			outerElement: document.documentElement,
 			innerElement: document.body

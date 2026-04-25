@@ -39,7 +39,7 @@ a, a:visited {
 	color: #ffffff;
 	background-color: #000000;
 }
-.body-toggle {
+.body-toggle-wrapper {
 	position: fixed;
 	top: 5px;
 	left: calc((100% - var(--no-scroll--document-width-offset, 0px)) / 2);

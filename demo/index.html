@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-no-scroll-element="outer">
+<html>
 	<head>
 		<meta charset="UTF-8">
 		<title>No Scroll Demo</title>
@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="./demo.css">
 		<script src="./demo.js"></script>
 	</head>
-	<body data-no-scroll-element="inner">
+	<body>
 		<div class="body-inner">
 			<header>
 				<h1>No Scroll Demo</h1>
@@ -27,7 +27,9 @@
 		innerElement: document.body
 	});
 });</code></pre>
-				<button class="body-toggle toggle-button">Toggle Body Scroll</button>
+			<div class="body-toggle-wrapper">
+				<button class="body-toggle-vertical toggle-button">Toggle Body Scroll</button>
+			</div>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque tristique enim non cursus. Mauris a vehicula nunc. Donec sagittis sagittis nisi nec egestas. Fusce tincidunt venenatis pulvinar. Curabitur egestas sed diam vel porttitor. Nunc et ornare purus, ac hendrerit turpis. Aenean sit amet commodo arcu, vitae accumsan eros. Sed odio diam, vehicula et facilisis nec, finibus sit amet enim. Nulla blandit blandit elit non feugiat. Pellentesque ac nunc nibh. Vestibulum finibus tellus ante, ac vulputate ligula aliquam et. Morbi at quam gravida, euismod risus ut, ultricies velit. Donec porta pellentesque congue. Pellentesque nisl leo, pellentesque pulvinar consequat a, ullamcorper non nibh. Sed ac urna quis erat euismod facilisis quis non purus.</p>
 				<p>Sed maximus elit vitae nunc efficitur, eget fringilla nisi tempor. Maecenas pellentesque nunc tempus elit tempor ornare. Suspendisse nec enim non nisl convallis dapibus. In id dignissim felis. Pellentesque nec dui vel dui aliquam rhoncus eu id purus. Ut augue ex, tempor id sem quis, consectetur pellentesque erat. Nunc dignissim sapien vel cursus condimentum. Phasellus commodo leo at dolor posuere iaculis ac sollicitudin ipsum.</p>
 				<h2>Vertical</h2>
@@ -39,8 +41,8 @@
 	});
 });</code></pre>
 				<button class="vertical-toggle toggle-button">Toggle Vertical Scroll</button>
-				<div class="vertical-wrapper-outer" data-no-scroll-element="outer">
-					<div class="vertical-wrapper-inner" data-no-scroll-element="inner">
+				<div class="vertical-wrapper-outer">
+					<div class="vertical-wrapper-inner">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque tristique enim non cursus. Mauris a vehicula nunc. Donec sagittis sagittis nisi nec egestas. Fusce tincidunt venenatis pulvinar. Curabitur egestas sed diam vel porttitor. Nunc et ornare purus, ac hendrerit turpis. Aenean sit amet commodo arcu, vitae accumsan eros. Sed odio diam, vehicula et facilisis nec, finibus sit amet enim. Nulla blandit blandit elit non feugiat. Pellentesque ac nunc nibh. Vestibulum finibus tellus ante, ac vulputate ligula aliquam et. Morbi at quam gravida, euismod risus ut, ultricies velit. Donec porta pellentesque congue. Pellentesque nisl leo, pellentesque pulvinar consequat a, ullamcorper non nibh. Sed ac urna quis erat euismod facilisis quis non purus.</p>
 						<p>Sed maximus elit vitae nunc efficitur, eget fringilla nisi tempor. Maecenas pellentesque nunc tempus elit tempor ornare. Suspendisse nec enim non nisl convallis dapibus. In id dignissim felis. Pellentesque nec dui vel dui aliquam rhoncus eu id purus. Ut augue ex, tempor id sem quis, consectetur pellentesque erat. Nunc dignissim sapien vel cursus condimentum. Phasellus commodo leo at dolor posuere iaculis ac sollicitudin ipsum.</p>
 						<p>In hac habitasse platea dictumst. Etiam augue ante, rhoncus in ligula ac, facilisis interdum tellus. Nulla ac sem ac dui faucibus rhoncus. Sed faucibus at neque eget varius. In diam ligula, gravida ac euismod a, hendrerit vel velit. Duis ultrices ex sed dui varius, iaculis pellentesque sem mollis. In accumsan, ligula sed venenatis sollicitudin, massa tortor efficitur lorem, at lobortis neque est eget purus. Sed tortor enim, tincidunt non velit ac, rhoncus aliquam purus. Fusce id dolor sed nulla congue commodo. Etiam tempus aliquam diam, sit amet efficitur magna faucibus a. Suspendisse in orci ultrices, ullamcorper ex non, ultricies velit. Pellentesque nisl risus, lobortis et ligula in, egestas blandit augue. Vestibulum ex justo, tempus et sem rutrum, volutpat semper justo. Etiam eget aliquet leo. Sed fringilla ipsum lectus, volutpat laoreet diam accumsan id. Praesent sed porta mi.</p>
@@ -68,8 +70,8 @@
 	});
 });</code></pre>
 				<button class="horizontal-toggle toggle-button">Toggle Horizontal Scroll</button>
-				<div class="horizontal-wrapper-outer" data-no-scroll-element="outer">
-					<div class="horizontal-wrapper-inner" data-no-scroll-element="inner">
+				<div class="horizontal-wrapper-outer">
+					<div class="horizontal-wrapper-inner">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque tristique enim non cursus. Mauris a vehicula nunc. Donec sagittis sagittis nisi nec egestas. Fusce tincidunt venenatis pulvinar. Curabitur egestas sed diam vel porttitor. Nunc et ornare purus, ac hendrerit turpis. Aenean sit amet commodo arcu, vitae accumsan eros. Sed odio diam, vehicula et facilisis nec, finibus sit amet enim. Nulla blandit blandit elit non feugiat. Pellentesque ac nunc nibh. Vestibulum finibus tellus ante, ac vulputate ligula aliquam et. Morbi at quam gravida, euismod risus ut, ultricies velit. Donec porta pellentesque congue. Pellentesque nisl leo, pellentesque pulvinar consequat a, ullamcorper non nibh. Sed ac urna quis erat euismod facilisis quis non purus.</p>
 						<p>Sed maximus elit vitae nunc efficitur, eget fringilla nisi tempor. Maecenas pellentesque nunc tempus elit tempor ornare. Suspendisse nec enim non nisl convallis dapibus. In id dignissim felis. Pellentesque nec dui vel dui aliquam rhoncus eu id purus. Ut augue ex, tempor id sem quis, consectetur pellentesque erat. Nunc dignissim sapien vel cursus condimentum. Phasellus commodo leo at dolor posuere iaculis ac sollicitudin ipsum.</p>
 						<p>In hac habitasse platea dictumst. Etiam augue ante, rhoncus in ligula ac, facilisis interdum tellus. Nulla ac sem ac dui faucibus rhoncus. Sed faucibus at neque eget varius. In diam ligula, gravida ac euismod a, hendrerit vel velit. Duis ultrices ex sed dui varius, iaculis pellentesque sem mollis. In accumsan, ligula sed venenatis sollicitudin, massa tortor efficitur lorem, at lobortis neque est eget purus. Sed tortor enim, tincidunt non velit ac, rhoncus aliquam purus. Fusce id dolor sed nulla congue commodo. Etiam tempus aliquam diam, sit amet efficitur magna faucibus a. Suspendisse in orci ultrices, ullamcorper ex non, ultricies velit. Pellentesque nisl risus, lobortis et ligula in, egestas blandit augue. Vestibulum ex justo, tempus et sem rutrum, volutpat semper justo. Etiam eget aliquet leo. Sed fringilla ipsum lectus, volutpat laoreet diam accumsan id. Praesent sed porta mi.</p>
@@ -107,8 +109,8 @@ document.querySelector('.both-toggle').addEventListener('click', () => {
 				<button class="both-vertical-toggle toggle-button">Toggle Vertical Scroll</button>
 				<button class="both-horizontal-toggle toggle-button">Toggle Horizontal Scroll</button>
 				<button class="both-toggle toggle-button">Toggle Both</button>
-				<div class="both-wrapper-outer" data-no-scroll-element="outer">
-					<div class="both-wrapper-inner" data-no-scroll-element="inner">
+				<div class="both-wrapper-outer">
+					<div class="both-wrapper-inner">
 						<img src="./image.jpg">
 					</div>
 				</div>

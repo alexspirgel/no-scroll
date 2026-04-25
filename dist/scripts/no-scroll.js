@@ -1,5 +1,5 @@
 /*!
- * no-scroll v1.0.0
+ * no-scroll v1.0.2
  * https://github.com/alexspirgel/no-scroll
  */
 var noScroll;

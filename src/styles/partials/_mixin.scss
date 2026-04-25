@@ -58,13 +58,17 @@
 		&[#{$attr-x-state}="no-scroll"]::after {
 			overflow-x: scroll;
 		}
-		&[#{$attr-y-state}="no-scroll"]::after {
-			overflow-y: scroll;
-			height: 100%;
+		&[#{$attr-y-state}="no-scroll"] {
+			&::after {
+				overflow-y: scroll;
+			}
+			&:not(html)::after {
+				height: 100%;
+			}
 		}
 	}
 	html[#{$attr-element}="outer"]::after {
-		height: 100vh; /* If the outer element is <html> the after element must be set to the viewport height to work properly. */
+		height: 100vh; /* If the outer element is the <html> tag, the after element must be set to the viewport height to work properly. */
 	}
 	[#{$attr-element}="inner"] {
 		box-sizing: border-box;

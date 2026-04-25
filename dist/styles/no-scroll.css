@@ -1,5 +1,5 @@
 /*
- * no-scroll v1.0.0
+ * no-scroll v1.0.2
  * https://github.com/alexspirgel/no-scroll
  */
 [data-no-scroll-element=outer] {
@@ -44,11 +44,14 @@
 
 [data-no-scroll-element=outer][data-no-scroll-y-state=no-scroll]::after {
   overflow-y: scroll;
+}
+
+[data-no-scroll-element=outer][data-no-scroll-y-state=no-scroll]:not(html)::after {
   height: 100%;
 }
 
 html[data-no-scroll-element=outer]::after {
-  height: 100vh; /* If the outer element is <html> the after element must be set to the viewport height to work properly. */
+  height: 100vh; /* If the outer element is the <html> tag, the after element must be set to the viewport height to work properly. */
 }
 
 [data-no-scroll-element=inner] {
